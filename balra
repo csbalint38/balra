@@ -1,0 +1,14 @@
+string balra(string str, int max) {
+	int line_l = 0, space_pos = 0;
+	for (int i = 0; i < str.length(); i++) {
+		if (str[i] == ' ') {
+			if (line_l > max) {
+				str.replace(space_pos, 1, "\n");
+				line_l = i - space_pos;
+			}
+			space_pos = i;
+		}
+		line_l++;
+	}
+	return str;
+}
